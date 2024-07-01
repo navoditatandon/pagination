@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState, useEffect} from 'react';
+import PaginationV1 from './PaginationV1';
 
-function App() {
+const App = () => {
+
+  const [page, setPage] = useState(1);
+
+  const handlePageClick = (pageNumber) => {
+    setPage(pageNumber);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {page}
+       <PaginationV1 currentPage = {page} totalPages = {[1,2,3,4,5,6,7,8,9,10]} handlePageClick = {handlePageClick}/>
     </div>
-  );
+  )
 }
 
 export default App;
